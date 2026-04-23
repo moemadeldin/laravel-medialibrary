@@ -75,7 +75,7 @@ abstract class BaseUrlGenerator implements UrlGenerator
     {
         $driver = config("filesystems.disks.{$this->getDiskName()}.driver");
         
-        if ($driver === 's3') {
+        if ($driver !== 'local') {
             return $this->getPathRelativeToRoot();
         }
         
